@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+    <title>Atelie</title>
+</head>
+<body>
+    <div class="container">
+        <h1 text-align="center">Editar Servico</h1><br />
+        <form action="/editar_servico/{{ servico.id_servico }} "method="POST">
+            <div class="form-row">
+                <div class="col-12">
+                    <label for="nome_cli">Nome Cliente:</label>
+                    <input type="text" class="form-control" name="nome_cli" disabled  value="{{servico.nome_cli}}" />
+                </div>
+                <div class="col-12">
+                    <label for="servico">Tipo Serviço:</label>
+                    <input type="text" value="{{servico.servico}}" disabled class="form-control" name="servico" id="servico" placeholder="Digite o serviço" />
+                </div>
+                <div>
+                    <label for="status">Status do serviço</label>
+                    <select name="status">
+                        <option value="Pendente" selected>Pendente</option>
+                        <option value="concluido">Concluído</option>
+                    </select>
+                </div>
+                <div class="col-12">
+                    <label for="preco">Preço:</label>
+                    <input type="text" value="{{servico.preco}}" required class="form-control" name="preco" id="preco" size="4" placeholder="Digite o preço produto" />
+                </div>
+                <div class="col-12">
+                    <label for="observacao">Observação:</label>
+                    <input type="text" value="{{servico.observacao}}" class="form-control" name="observacao" id="observacao" size="50" placeholder="Digite alguma observação se tiver" />
+                </div>
+                    <div class="col-12">
+                        <label hidden for="id_servico">Nome Cliente:</label>
+                        <input type="hidden" class="form-control" name="id_servico" disabled  value="{{servico.id_servico}}" />
+                    </div>
+            </div>
+            <br/>
+            <button type="submit" class="btn btn-primary">Salvar</button>
+            <a href="/"><button type="button" class="btn btn-danger">Voltar</button></a>
+        </form>
+    </div>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js')}}" ></script>
+</body>
+</html>

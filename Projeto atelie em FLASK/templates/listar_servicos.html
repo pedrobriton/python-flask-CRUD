@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+    <title>Atelie</title>
+</head>
+<body>
+    <div class="container">
+        <h1 text-align="center">Listar Serviços</h1><br />
+        <a href="/cadastrar_servico"><button type="submit" class="btn btn-primary">Novo Servico</button></a>
+        <a href="/"><button type="submit" class="btn btn-danger">Cancelar</button></a>
+        <table class="table table-hover">
+            {% if not servico %}
+
+                
+                <h3>SEM SERVIÇOS</h3>
+                    {% else %}
+                    <thead>
+                        <tr>
+                            <th>Data serviço</th>
+                            <th>Nome cliente</th>
+                            <th>Servico</th>
+                            <th>Preço</th>
+                            <th>Status</th>
+                            <th>Observação</th>
+                            <th>Editar</th>
+                            <th>Deletar</th>
+                        </tr>
+                    </thead>    
+                <tbody>
+                    {% for s in servico %}
+                    <tr>
+                        <td>{{s.data}}</td>
+                        <td>{{s.nome_cli}}</td>
+                        <td>{{s.servico}}</td>
+                        <td>{{s.preco}}</td>
+                        <td>{{s.status}}</td>
+                        <td>{{s.observacao}}</td>
+                        <td><a href="editar_servico/{{s.id_servico}}"><img src="{{ url_for('static', filename='images/editar.png')}}" alt="botão de edição"></a></td>
+                        <td><a href="listar_servico/delete/{{ s.id_servico }}"><img src="{{ url_for('static', filename='images/excluir.png')}}" alt="botão de exclusão"></a></td>
+                    </tr>
+                    {% endfor %}
+            {%endif%}
+            </tbody>
+        </table>
+    </div>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js')}}" ></script>
+</body>
+</html>

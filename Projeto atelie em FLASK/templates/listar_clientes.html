@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+    <title>Atelie</title>
+</head>
+<body>
+    <div class="container">
+        <h1 text-align="center">Listar Clientes</h1><br />
+
+        <a href="/cad_cliente"><button type="submit" class="btn btn-primary">Cadastrar cliente</button></a>
+
+        <a href="/"><button type="submit" class="btn btn-danger">Cancelar</button></a>
+
+        <table class="table table-hover">
+            {% if not cliente %}
+                
+                <h3>SEM CLIENTES</h3>
+                    {% else %}
+                    <thead>
+                
+                        <tr>
+                            <th>Nome</th>
+                            <th>Telefone</th>
+                            <th>Status</th>
+                            <th>Editar</th>
+                            <th>Apagar</th>
+                        </tr>
+                    </thead>  
+                        {% for p in cliente %}
+                    </tbody>
+                        <tr>
+                            <td>{{p.nome}}</td>
+                            <td>{{p.telefone}}</td>
+                            <td>{{p.status}}</td>
+                            <td><a href="editar_cliente/{{p.id}}"><img src="{{ url_for('static', filename='images/editar.png')}}" alt="botão de edição"></a></td>
+                            <td><a href="listar_clientes/delete/{{p.id}}"><img src="{{ url_for('static', filename='images/excluir.png')}}" alt="botão de exclusão"></a></td>
+                        </tr>
+                        {% endfor %}
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js')}}" ></script>
+</body>
+</html>

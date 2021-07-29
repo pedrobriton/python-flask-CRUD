@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+    <title>Atelie</title>
+</head>
+<body>
+    <div class="container">
+        <h1 text-align="center">Editar Cliente {{cliente.nome}}</h1><br />
+        <form action="/editar_cliente/{{ cliente.id }}" method="POST">
+            <div class="form-row">
+                <div class="col-3">
+                    <label for="nome_cli">Nome Cliente:</label>
+                    <input type="text" required class="form-control" name="nome_cli" value="{{cliente.nome}}" />
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-3">
+                    <label for="telefone_cliente">Telefone do cliente:</label>
+                    <input type="text" required class="form-control" name="tel_cli" value="{{cliente.telefone}}" />
+                </div>
+            </div>
+    
+                <div class="form-row">
+                    <div class="col-3">
+                        <label for="status">Status:</label>
+                        <select name="status">
+                            <option value="ativo">ativo</option>
+                            <option selected value="inativo">inativo</option>
+                        </select>
+                    </div>
+                </div><br />
+            <button type="submit" class="btn btn-primary">Salvar Alteração</button>
+            <a href="/"><button type="button" class="btn btn-danger">Voltar</button></a>
+        </form>
+    </div>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js')}}" ></script>
+</body>
+</html>

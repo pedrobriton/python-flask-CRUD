@@ -1,0 +1,16 @@
+h1 {
+    text-align: left;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+
+
+.btn btn-primary tamanho-padrao {
+    width: 30%;
+    white-space: normal;
+}
+
+
+.tamanho-padrao {
+    width: 15%;
+    white-space: normal;
+    }

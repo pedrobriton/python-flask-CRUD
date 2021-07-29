@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='/css/style.css')}}">
+    <title>Atelie</title>
+</head>
+<body>
+
+    <style>
+        .tamanho-padrao {
+            width: 25%;
+            white-space: normal;
+            height: 20%;
+            align-items: left;
+        }
+
+        .ul {
+            align-items: left;
+
+        }
+
+        #head {
+            margin-left: 180px;
+        }
+    </style>
+    
+    
+<header id="head">
+    <h1 text-align="left">Pagina Inicial</h1>
+</header>
+    <div class="container">
+        <ul>
+            <a href="/cad_cliente"><button type="submit" class="btn btn-primary tamanho-padrao">Cadastrar Cliente</button></a>
+        </ul>
+        <ul>
+            <a href="/listar_clientes"><button type="submit" class="btn btn-primary tamanho-padrao">Listar Clientes</button></a>
+        </ul>
+        <ul>
+            <a href="/cadastrar_servico"><button type="submit" class="btn btn-primary tamanho-padrao">Registrar Serviço</button></a>
+        </ul>
+        <ul>
+            <a href="/listar_servicos"><button type="submit" class="btn btn-primary tamanho-padrao">Listar Servicos</button></a>
+        </ul>
+    </div>
+        
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js')}}" ></script>
+</body>
+</html>

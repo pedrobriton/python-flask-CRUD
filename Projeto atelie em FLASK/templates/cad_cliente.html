@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+    <title>Atelie</title>
+</head>
+<body>
+    <div class="container">
+        <h1 text-align="center">Cadastrar cliente</h1><br />
+        <form action="/cad_cliente" method="POST">
+            <div class="form-row">
+                <div class="col-3">
+                    <label for="nome_cli">Nome Cliente:</label>
+                    <input type="text" required class="form-control" name="nome_cli" id="nome_cli" size="50" placeholder="Digite o nome do cliente" />
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-3">
+                    <label for="tel_cli">Telefone do cliente:</label>
+                    <input type="text" required class="form-control" name="tel_cli" id="tel_cli" size="50" placeholder="Telefone do cliente" />
+                </div>
+            </div>
+
+                <div class="form-row">
+                    <div class="col-3">
+                        <label for="status">Status:</label>
+                        <input type="text"  class="form-control" name="status" id="status" size="50"/>
+                    </div>
+                </div>
+
+
+            </div><br />
+            <button type="submit" class="btn btn-primary">Salvar contato</button>
+            <a href="/"><button type="button" class="btn btn-danger">Voltar</button></a>
+        </form>
+    </div>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js')}}" ></script>
+</body>
+</html>

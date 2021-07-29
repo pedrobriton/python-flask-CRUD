@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+    <title>Atelie</title>
+</head>
+<body>
+    <div class="container">
+        <h1 text-align="center">Cadastrar Servico</h1><br />
+        <form action="/cadastrar_servico" method="POST">
+            <div class="form-row">
+                <div class="col-12">
+                    <label for="nome_cli">Nome Cliente:</label>
+                    <input type="text" required class="form-control" name="nome_cli" id="nome_cli" size="4" placeholder="Digite o nome do cliente" />
+                </div>
+                <div class="col-12">
+                    <label for="servico">Tipo Serviço:</label>
+                    <input type="text" required class="form-control" name="servico" id="servico" size="4" placeholder="Digite o serviço" />
+                </div>
+                <div>
+                    <label for="status">Status do serviço</label>
+                    <select name="status">
+                        <option value="pendente" selected>Pendente</option>
+                        <option value="concluido">Concluído</option>
+                    </select>
+                </div>
+                <div class="col-12">
+                    <label for="preco">Preço:</label>
+                    <input type="text" required class="form-control" name="preco" id="preco" size="4" placeholder="Digite o preço produto" />
+                </div>
+                <div class="col-12">
+                    <label for="observacao">Observação:</label>
+                    <input type="text" class="form-control" name="observacao" id="observacao" size="50" placeholder="Digite alguma observação se tiver" />
+                </div>
+            </div><br />
+            <button type="submit" class="btn btn-primary">Salvar Produto</button>
+            <a href="/"><button type="button" class="btn btn-danger">Voltar</button></a>
+        </form>
+    </div>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js')}}" ></script>
+</body>
+</html>
